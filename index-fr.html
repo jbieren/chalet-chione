@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chalet Chione les Chavants — Les Houches, Vallée de Chamonix</title>
+<meta name="description" content="Superbe chalet avec vue splendide sur les montagnes, à deux pas du téléphérique du Prarion aux Houches. 14 voyageurs · 5 chambres · 12 lits · 3,5 salles de bain.">
+<style>
+  :root {
+    --pine: #2f4a3c;
+    --pine-dark: #24392f;
+    --cream: #faf7f0;
+    --warm-white: #fffdf8;
+    --wood: #a97c50;
+    --ink: #2b2b28;
+    --muted: #6b6b64;
+    --line: #e6e0d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+  }
+  .sans { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 247, 240, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem 5vw;
+  }
+  nav .brand { font-size: 1.05rem; letter-spacing: 0.04em; color: var(--pine); font-weight: 700; text-decoration: none; }
+  nav ul { display: flex; gap: 1.6rem; list-style: none; }
+  nav ul a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink); text-decoration: none;
+  }
+  nav ul a:hover { color: var(--wood); }
+  nav ul a.lang-switch {
+    border: 1px solid var(--pine); border-radius: 999px;
+    padding: 0.25rem 0.7rem; color: var(--pine); font-weight: 700;
+  }
+  nav ul a.lang-switch:hover { background: var(--pine); color: var(--cream); }
+  @media (max-width: 720px) { nav ul { display: none; } }
+
+  /* ---------- Contact ---------- */
+  #contact { text-align: center; }
+  #contact h2 { margin-left: auto; margin-right: auto; }
+  #contact h2::after { margin-left: auto; margin-right: auto; }
+  .contact-card {
+    display: inline-block; background: var(--warm-white);
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 2rem 3rem; box-shadow: 0 6px 20px rgba(40,50,40,0.08);
+  }
+  .contact-card .name { font-size: 1.25rem; color: var(--pine); font-weight: 700; margin-bottom: 0.9rem; }
+  .contact-card p { margin: 0.35rem 0; }
+  .contact-card a { color: var(--wood); text-decoration: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    position: relative; min-height: 78vh;
+    display: flex; align-items: flex-end;
+    background: url('photos/31-chalet-exterior.jpg') center 40%/cover no-repeat;
+  }
+  header.hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,30,25,0.15) 0%, rgba(20,30,25,0.0) 35%, rgba(20,30,25,0.65) 100%);
+  }
+  .hero-inner { position: relative; z-index: 1; padding: 3.5rem 5vw; color: #fff; max-width: 60rem; }
+  .hero-inner h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; line-height: 1.15; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+  .hero-inner p.tagline { margin-top: 0.8rem; font-size: clamp(1rem, 2vw, 1.25rem); text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+  .hero-badges { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .badge {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.06em;
+    background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 999px; padding: 0.35rem 0.9rem; backdrop-filter: blur(4px);
+  }
+
+  /* ---------- Layout ---------- */
+  section { padding: 4.5rem 5vw; max-width: 72rem; margin: 0 auto; }
+  section h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 400; color: var(--pine);
+    margin-bottom: 1.6rem;
+  }
+  section h2::after { content: ''; display: block; width: 3.5rem; height: 3px; background: var(--wood); margin-top: 0.6rem; border-radius: 2px; }
+
+  .stats {
+    display: flex; flex-wrap: wrap; gap: 2.5rem;
+    padding: 1.8rem 5vw; justify-content: center;
+    background: var(--pine); color: var(--cream);
+  }
+  .stats div { text-align: center; }
+  .stats .num { font-size: 1.7rem; font-weight: 700; }
+  .stats .lbl { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.85; }
+
+  .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+  @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+  .about p { margin-bottom: 1.1rem; }
+  .about .note {
+    background: var(--warm-white); border-left: 4px solid var(--wood);
+    padding: 1rem 1.2rem; font-size: 0.95rem; color: var(--muted); border-radius: 0 6px 6px 0;
+  }
+  .about-photo img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(40,50,40,0.18); }
+  .about-photo figcaption { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; text-align: center; }
+
+  /* ---------- Bedrooms ---------- */
+  .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+  .room {
+    background: var(--warm-white); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; box-shadow: 0 4px 14px rgba(40,50,40,0.07);
+  }
+  .room img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .room .txt { padding: 0.9rem 1rem 1.1rem; }
+  .room .txt strong { display: block; color: var(--pine); }
+  .room .txt span { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.85rem; color: var(--muted); }
+
+  /* ---------- Amenities ---------- */
+  #amenities { background: var(--warm-white); max-width: none; }
+  #amenities .inner { max-width: 72rem; margin: 0 auto; }
+  .amen-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.8rem 2.5rem; }
+  .amen-groups h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--wood); margin-bottom: 0.6rem;
+  }
+  .amen-groups ul { list-style: none; }
+  .amen-groups li { padding: 0.22rem 0 0.22rem 1.3rem; position: relative; font-size: 0.97rem; }
+  .amen-groups li::before { content: '✓'; position: absolute; left: 0; color: var(--pine); font-weight: 700; }
+
+  /* ---------- Gallery ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.7rem; }
+  .gallery a { display: block; overflow: hidden; border-radius: 8px; position: relative; }
+  .gallery img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+    transition: transform 0.35s ease; cursor: zoom-in;
+  }
+  .gallery a:hover img { transform: scale(1.045); }
+
+  /* ---------- Lightbox ---------- */
+  #lightbox {
+    position: fixed; inset: 0; z-index: 100; display: none;
+    background: rgba(15, 20, 17, 0.94);
+    align-items: center; justify-content: center; flex-direction: column;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  #lb-cap { color: #ddd; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.9rem; margin-top: 0.9rem; text-align: center; padding: 0 1rem; }
+  .lb-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.35); color: #fff;
+    font-size: 1.6rem; line-height: 1; padding: 0.7rem 1rem; border-radius: 8px; cursor: pointer;
+  }
+  .lb-btn:hover { background: rgba(255,255,255,0.25); }
+  #lb-prev { left: 2vw; } #lb-next { right: 2vw; }
+  #lb-close { position: absolute; top: 1.2rem; right: 1.5rem; transform: none; font-size: 1.3rem; }
+
+  /* ---------- Location ---------- */
+  #location .two-col p { margin-bottom: 1rem; }
+  #location img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(40,50,40,0.18); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--pine-dark); color: rgba(250,247,240,0.85);
+    padding: 3rem 5vw; text-align: center;
+  }
+  footer .brand { font-size: 1.2rem; color: #fff; margin-bottom: 0.6rem; }
+  footer p { font-size: 0.9rem; max-width: 40rem; margin: 0.3rem auto; }
+  footer a { color: #d8c6a8; }
+  footer .reg { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.75rem; opacity: 0.6; margin-top: 1.4rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#">Chalet Chione les Chavants</a>
+  <ul>
+    <li><a href="#about">Le chalet</a></li>
+    <li><a href="#sleeping">Chambres</a></li>
+    <li><a href="#amenities">Équipements</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#location">Accès</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html" class="lang-switch">EN</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Superbe chalet, vue splendide,<br>emplacement idéal</h1>
+    <p class="tagline">Chalet entier aux Houches, vallée de Chamonix — à deux pas du téléphérique du Prarion</p>
+    <div class="hero-badges sans">
+      <span class="badge">★ 4,94 · 72 commentaires</span>
+      <span class="badge">Coup de cœur voyageurs</span>
+      <span class="badge">Superhôte · 12 ans d'expérience</span>
+      <span class="badge">Skis aux pieds</span>
+    </div>
+  </div>
+</header>
+
+<div class="stats sans">
+  <div><div class="num">14</div><div class="lbl">Voyageurs</div></div>
+  <div><div class="num">5</div><div class="lbl">Chambres</div></div>
+  <div><div class="num">12</div><div class="lbl">Lits</div></div>
+  <div><div class="num">3,5</div><div class="lbl">Salles de bain</div></div>
+</div>
+
+<section id="about">
+  <h2>Le chalet</h2>
+  <div class="two-col">
+    <div class="about">
+      <p>Beau chalet entièrement rénové, situé à deux pas du téléphérique du Prarion, de l'ESF, du lac des Chavants (jardin des neiges de l'ESF, ski de fond, tennis et rocher d'escalade en été) et des commerces du secteur du Prarion. Restaurants conviviaux à proximité. Vue imprenable et après-ski cosy ! Idéal pour un séjour skis aux pieds en hiver, et chaussures de randonnée en été !</p>
+      <p>Ce logement est unique par sa proximité avec le téléphérique du Prarion, la remontée principale du domaine skiable des Houches, l'école de ski, le lac des Chavants et le jardin des neiges. De nombreuses randonnées sont accessibles depuis le chalet ou le sommet du téléphérique en été (en VTT également).</p>
+      <p>Entièrement rénové, il est très confortable pour 14 personnes, et très bien équipé pour les soirées conviviales : raclette, fondue… baby-foot Bonzini… table de ping-pong… trampoline… barbecue… sauna. Il est aussi très bien équipé pour les enfants, y compris en bas âge (barrières de protection dans les escaliers, chaise haute, luges, jeux de société…).</p>
+      <div class="note">
+        <strong>À noter :</strong> le ménage (obligatoire) est en supplément, à régler à l'arrivée (250 €). Le linge de lit et les serviettes (draps et une serviette par personne) sont en option au tarif de 25 €/personne — les lits seront préparés avant votre arrivée.
+      </div>
+    </div>
+    <figure class="about-photo">
+      <img src="photos/02-living-room-apres-ski.jpg" alt="Salon très confortable pour un après-ski chaleureux" loading="lazy">
+      <figcaption>Un salon très confortable pour un après-ski chaleureux</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="sleeping">
+  <h2>Où vous dormirez</h2>
+  <div class="rooms">
+    <div class="room"><img src="photos/15-master-bedroom.jpg" alt="Chambre parentale" loading="lazy"><div class="txt"><strong>Chambre 1</strong><span class="sans">1 lit queen — chambre parentale avec salle de bain attenante</span></div></div>
+    <div class="room"><img src="photos/18-double-room-upstairs.jpg" alt="Chambre double à l'étage" loading="lazy"><div class="txt"><strong>Chambre 2</strong><span class="sans">1 lit double — à l'étage</span></div></div>
+    <div class="room"><img src="photos/20-ground-floor-bedroom.jpg" alt="Chambre double ou lits jumeaux au rez-de-chaussée" loading="lazy"><div class="txt"><strong>Chambre 3</strong><span class="sans">2 lits simples — double ou jumeaux, rez-de-chaussée</span></div></div>
+    <div class="room"><img src="photos/22-dorm-bunk-beds.jpg" alt="Dortoir avec 3 lits superposés" loading="lazy"><div class="txt"><strong>Chambre 4</strong><span class="sans">3 lits superposés — le dortoir rêvé des enfants</span></div></div>
+    <div class="room"><img src="photos/25-twin-room.jpg" alt="Petite chambre avec deux lits simples à l'étage" loading="lazy"><div class="txt"><strong>Chambre 5</strong><span class="sans">2 lits simples — à l'étage</span></div></div>
+  </div>
+</section>
+
+<section id="amenities">
+  <div class="inner">
+    <h2>Ce que propose ce logement</h2>
+    <div class="amen-groups sans">
+      <div><h3>Vue &amp; situation</h3><ul><li>Vue sur la montagne</li><li>Skis aux pieds</li><li>Entrée privée</li><li>Parking gratuit sur place (3 places privées)</li><li>Parking gratuit dans la rue</li></ul></div>
+      <div><h3>Bien-être</h3><ul><li>Sauna privé</li><li>Baignoire</li><li>Baignoire scandinave</li><li>Eau chaude</li><li>Sèche-cheveux</li><li>Gel douche</li></ul></div>
+      <div><h3>Cuisine &amp; repas</h3><ul><li>Cuisine toute équipée</li><li>Lave-vaisselle</li><li>Four, cuisinière &amp; micro-ondes</li><li>Réfrigérateur</li><li>Cafetière &amp; bouilloire</li><li>Vaisselle, couverts &amp; verres à vin</li><li>Table à manger</li><li>Soirées raclette &amp; fondue</li></ul></div>
+      <div><h3>Loisirs</h3><ul><li>Télévision</li><li>Baby-foot Bonzini</li><li>Table de ping-pong</li><li>Trampoline</li><li>Jeux de société</li></ul></div>
+      <div><h3>Familles bienvenues</h3><ul><li>Lit bébé &amp; lit parapluie</li><li>Chaise haute</li><li>Barrières de sécurité enfants</li><li>Pare-feu pour la cheminée</li><li>Protections coins de table</li><li>Livres et jouets pour enfants</li><li>Luges</li></ul></div>
+      <div><h3>Confort &amp; pratique</h3><ul><li>Cheminée intérieure</li><li>Chauffage</li><li>Wifi</li><li>Espace de travail dédié</li><li>Lave-linge</li><li>Fer &amp; étendoir à linge</li><li>Oreillers et couvertures supplémentaires</li></ul></div>
+      <div><h3>Extérieur</h3><ul><li>Terrasse &amp; balcon privés</li><li>Jardin privé à l'arrière</li><li>Mobilier d'extérieur</li><li>Barbecue &amp; ustensiles</li><li>Terrasse ensoleillée</li></ul></div>
+      <div><h3>Sécurité &amp; services</h3><ul><li>Détecteur de fumée</li><li>Détecteur de monoxyde de carbone</li><li>Extincteur</li><li>Accueil par l'hôte</li><li>Dépôt de bagages autorisé</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Galerie</h2>
+  <div class="gallery" id="gal"></div>
+</section>
+
+<section id="location">
+  <h2>Accès</h2>
+  <div class="two-col">
+    <div>
+      <p>Le chalet est facilement accessible en voiture. Depuis l'A40 (Autoroute Blanche), suivre la R.N. 205 direction Chamonix, passer le tunnel des Chavants et sortir à <strong>« Bellevue / Prarion »</strong>. Tourner à droite direction Prarion, passer le rond-point (au pied du téléphérique du Prarion) et continuer tout droit sur la route des Chavants jusqu'au n° 48 — le chalet se situe au fond de l'impasse, première à droite très rapidement après le rond-point.</p>
+      <p>Il y a <strong>trois places de parking privées</strong> devant le chalet.</p>
+      <p class="sans" style="color: var(--muted); font-size: 0.9rem;">48 route des Chavants, Les Houches, vallée de Chamonix, Haute-Savoie, France</p>
+    </div>
+    <div>
+      <img src="photos/34-exterior-1.jpg" alt="Extérieur du chalet" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-card">
+    <div class="name">Stéphanie Denis</div>
+    <p><a href="mailto:stephy.denis@gmail.com">stephy.denis@gmail.com</a></p>
+    <p><a href="tel:+33610922790">+33 6 10 92 27 90</a></p>
+    <p style="margin-top: 0.9rem;">ou réservez directement sur <a href="https://www.airbnb.fr/rooms/3677182">Airbnb</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Chalet Chione les Chavants — Les Houches</div>
+  <p>14 voyageurs · 5 chambres · 12 lits · 3,5 salles de bain · Votre hôte : Stéphanie</p>
+  <p>Réserver sur <a href="https://www.airbnb.fr/rooms/3677182">Airbnb</a> · Contact : <a href="mailto:stephy.denis@gmail.com">stephy.denis@gmail.com</a> · <a href="tel:+33610922790">+33 6 10 92 27 90</a></p>
+  <p class="reg">Numéro d'enregistrement : 74143000594C6</p>
+</footer>
+
+<div id="lightbox" role="dialog" aria-label="Visionneuse photo">
+  <button class="lb-btn" id="lb-close" aria-label="Fermer">✕</button>
+  <button class="lb-btn" id="lb-prev" aria-label="Photo précédente">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-btn" id="lb-next" aria-label="Photo suivante">›</button>
+  <div id="lb-cap"></div>
+</div>
+
+<script>
+const PHOTOS = [
+  ["01-living-room", "Coin salon chaleureux"],
+  ["02-living-room-apres-ski", "Salon très confortable pour un après-ski chaleureux !"],
+  ["03-living-room-group", "Très beau salon pour un groupe"],
+  ["04-tv-fireplace", "Soirée télé au coin du feu (le meuble TV est amovible pour plus de confort)"],
+  ["05-living-room-open", "Salon ouvert et confortable, idéal pour se détendre en famille ou entre amis"],
+  ["06-living-room-6", "Le salon"],
+  ["07-living-room-7", "Le salon"],
+  ["08-child-barrier", "Barrière de protection enfants dans l'escalier"],
+  ["09-foosball", "Baby-foot Bonzini"],
+  ["10-kitchen", "Cuisine très bien équipée et fonctionnelle"],
+  ["11-open-kitchen", "Cuisine ouverte"],
+  ["12-dining-area", "Coin repas ouvert et convivial"],
+  ["13-dining-area-2", "Coin repas ouvert et convivial"],
+  ["14-dining-area-3", "Coin repas ouvert et convivial"],
+  ["15-master-bedroom", "Chambre parentale"],
+  ["16-parent-double-room", "Chambre double des parents"],
+  ["17-master-bathroom", "Salle de bain de la chambre parentale"],
+  ["18-double-room-upstairs", "Chambre double à l'étage"],
+  ["19-double-room-upstairs-2", "Chambre double à l'étage"],
+  ["20-ground-floor-bedroom", "Chambre double ou lits jumeaux au rez-de-chaussée"],
+  ["21-ground-floor-bedroom-2", "Chambre double ou lits jumeaux au rez-de-chaussée"],
+  ["22-dorm-bunk-beds", "Dortoir — 3 lits superposés"],
+  ["23-dorm-2", "Dortoir"],
+  ["24-dorm-3", "Dortoir — la chambre rêvée des enfants !"],
+  ["25-twin-room", "Petite chambre avec deux lits simples à l'étage"],
+  ["26-twin-room-2", "Petite chambre avec deux lits simples à l'étage"],
+  ["27-bathroom-ground", "Salle de bain indépendante au rez-de-chaussée"],
+  ["28-bathroom-ground-2", "Salle de bain indépendante au rez-de-chaussée"],
+  ["29-sauna", "Sauna et salle de bain du rez-de-chaussée"],
+  ["30-scandinavian-bath", "Baignoire scandinave"],
+  ["31-chalet-exterior", "Beau chalet, facile d'accès avec parking"],
+  ["32-ping-pong-garden", "Table de ping-pong et aire de jeux"],
+  ["33-terrace", "Terrasse confortable"],
+  ["34-exterior-1", "Extérieur du chalet"],
+  ["35-exterior-2", "Extérieur du chalet"],
+  ["36-additional", "Le chalet"],
+  ["37-sunny-terrace", "Terrasse ensoleillée"]
+];
+
+const gal = document.getElementById('gal');
+PHOTOS.forEach(([name, cap], i) => {
+  const a = document.createElement('a');
+  a.href = 'photos/' + name + '.jpg';
+  a.innerHTML = '<img src="photos/' + name + '.jpg" alt="' + cap.replace(/"/g, '&quot;') + '" loading="lazy">';
+  a.addEventListener('click', e => { e.preventDefault(); openLB(i); });
+  gal.appendChild(a);
+});
+
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let cur = 0;
+function openLB(i) { cur = i; render(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function render() {
+  const [name, cap] = PHOTOS[cur];
+  lbImg.src = 'photos/' + name + '.jpg';
+  lbImg.alt = cap;
+  lbCap.textContent = (cur + 1) + ' / ' + PHOTOS.length + ' — ' + cap;
+}
+function step(d) { cur = (cur + d + PHOTOS.length) % PHOTOS.length; render(); }
+document.getElementById('lb-close').onclick = closeLB;
+document.getElementById('lb-prev').onclick = () => step(-1);
+document.getElementById('lb-next').onclick = () => step(1);
+lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+</script>
+
+</body>
+</html>
