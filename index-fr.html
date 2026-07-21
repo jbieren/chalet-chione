@@ -48,7 +48,26 @@
     padding: 0.25rem 0.7rem; color: var(--pine); font-weight: 700;
   }
   nav ul a.lang-switch:hover { background: var(--pine); color: var(--cream); }
-  @media (max-width: 720px) { nav ul { display: none; } }
+  .hamburger {
+    display: none; background: none; border: none;
+    font-size: 1.6rem; line-height: 1; color: var(--pine);
+    cursor: pointer; padding: 0.2rem 0.4rem;
+  }
+  @media (max-width: 720px) {
+    .hamburger { display: block; }
+    nav ul {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: rgba(250, 247, 240, 0.98); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 0.4rem 5vw 1.1rem;
+      box-shadow: 0 8px 20px rgba(40,50,40,0.12);
+    }
+    nav ul.open { display: flex; }
+    nav ul li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+    nav ul li:last-child { border-bottom: none; }
+    nav ul a.lang-switch { display: inline-block; margin-top: 0.6rem; }
+  }
 
   /* ---------- Contact ---------- */
   #contact { text-align: center; }
@@ -182,7 +201,8 @@
 
 <nav>
   <a class="brand" href="#">Chalet Chione les Chavants</a>
-  <ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+  <ul id="navlinks">
     <li><a href="#about">Le chalet</a></li>
     <li><a href="#sleeping">Chambres</a></li>
     <li><a href="#amenities">Équipements</a></li>
@@ -192,6 +212,24 @@
     <li><a href="index.html" class="lang-switch">EN</a></li>
   </ul>
 </nav>
+<script>
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('navlinks');
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '✕' : '☰';
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = '☰';
+      }
+    });
+  })();
+</script>
 
 <header class="hero">
   <div class="hero-inner">
